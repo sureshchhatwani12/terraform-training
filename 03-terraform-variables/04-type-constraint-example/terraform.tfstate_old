@@ -1,0 +1,38 @@
+{
+  "version": 4,
+  "terraform_version": "1.3.6",
+  "serial": 1,
+  "lineage": "36164852-480b-c588-3ff8-58327610a628",
+  "outputs": {
+    "cat_name": {
+      "value": "bella",
+      "type": "string"
+    },
+    "dog_count": {
+      "value": 2,
+      "type": "number"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "random_pet",
+      "name": "my-pet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "Mr-native-hound",
+            "keepers": null,
+            "length": 2,
+            "prefix": "Mr",
+            "separator": "-"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

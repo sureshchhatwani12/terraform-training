@@ -1,0 +1,78 @@
+1) Previous Session 10-15 minutes
+    1) What is infrastructure as code?
+    2) What is terraform?
+    3) Described terraform architecture.
+    4) Basic terraform examples.
+    5) Basic HCL syntax.
+    6) Described terraform workflow.
+    7) Described terraform state file.
+    8) Basic Demo with AWS.
+
+Today's agenda
+
+1) HCL Basics
+
+<block> <parameters> {
+    key1 = value1
+    key2 = value2
+}
+
+A block is defined within curly braces and it contains a set of arguments in key value pair format representing the configuration data.
+
+But what is a block and what arguments does it contains?
+
+In its simplest form, a block in terraform contains information about the infrastructure platform and a set of resources within that platform that we want to create.
+
+For example, let us consider a simple task. We want to create a file in the local system where terraform is instaled.
+To do this, first, let us create a directory called 01-terraform-local-file under whichever directory/drive you want to. Once we change into this new directory. We can create a configuration file called local.tf. And within this file, we can define the resource block, like this. And inside the resource block , we specify the filename to be created as well as its content using the block arguments.
+
+resource "local_file" "pet" {
+ filename = "/home/development/terraform-training/terraform-local-file/pets.txt" 
+ content = "We love pets!!"
+}
+
+Let us breakdown each line in the example and understand.
+The first element in this file is a block. Now this can be identified as a curly braces inside.
+The type of block we see here is called the "Resource" block. And this can be identified as the keyword called "resource".
+Following the keyword called resource, we have the declaration of the resource type that we want to create. This is a fixed value and depends on the provider where we want to create the resource.
+In this case, we have resource type called "local_file". A resource type provides two bit of information. First is the provider which is represented by the word before the underscore in the resource type. The word following the underscore represents the type of resource we want to create.
+local = provider
+file = resource
+The next and final declaration in this resource block is the resource name. This is the logical name used to identify the resource and it can be named anything. We have called it as pet as we are creating file having pets content.
+And within the block and within the curly braces, we define the arguments for resource which are written in key value pair format.
+Here we have provided filename and contents as arguments. In other words, the resource type "local_file" expects that we provide the argument of filename and content.
+Each resource type has specific arguments that they expect.
+
+A simple terraform worfklow consists of four steps:
+
+1) Write terraform configuration file.
+2) Run the terraform init command.
+3) Review the exeuction plan using terraform plan command.
+4) Finally apply the change using terraform apply command.
+
+
+
+2) Terraform Variables
+
+variables "variable"{
+    default = "deafult"
+    type = "data-type. is optional but when used enforces the data type for variable value." 
+    description = "description regarding variable. is optional."
+}
+
+Basic Variables Type
+1) string "/root/pets.txt"
+2) number 1
+3) bool true/false
+4) any (default value)
+5) list ["cat","dog"]
+6) map pet1=cat pet2=dog
+7) object complex data structure
+8) tuple comple data structure
+
+
+
+
+
+Basic variables 
+
